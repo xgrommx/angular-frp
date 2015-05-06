@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Some experiment with frp libraries in angular</title>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="node_modules/angular-route/angular-route.js"></script>
+
+    <!-- frp-->
+    <script src="node_modules/rx/dist/rx.all.js"></script>
+    <script src="node_modules/asyncplify/dist/asyncplify.js"></script>
+    <script src="node_modules/baconjs/dist/Bacon.js"></script>
+    <script src="node_modules/kefir/dist/kefir.js"></script>
+
+    <script src="node_modules/oclazyload/dist/ocLazyLoad.js"></script>
+
+    <!-- frp modules-->
+    <!--<script src="app/frp/angular-kefir.js"></script>-->
+    <!--<script src="app/frp/angular-rx.js"></script>-->
+
+    <script src="app/app.js"></script>
+</head>
+<body ng-app="app">
+    <div class="container" ng-controller="MainCtrl as m">
+        <div class="page-header">
+            <h1>Some experiment with frp libraries in angular</h1>
+        </div>
+        <div class="inner-wrapper">
+            <div class="row">
+                <div class="col-md-12">
+                    <tabset>
+                        <tab ng-repeat="tab in m.tabs" heading="{{tab.title}}" active="tab.active" select="m.go(tab.url)">
+                        </tab>
+                    </tabset>
+                    <div style="margin-top: 20px" ng-view></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
